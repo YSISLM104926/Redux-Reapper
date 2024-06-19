@@ -8,6 +8,7 @@ const {createStore} = require("redux");
 const INCREMENT = "INCREMENT"
 const DECREMENT = "DECREMENT"
 const RESET = "RESET"
+const INCREMENT_BY_FIVE = "INCREMENT_BY_FIVE"
 
 // state
 const initialCounterState = {
@@ -34,6 +35,14 @@ const resetAction = () => {
 }
 
 
+const incrementByFiveAction = (value) => {
+    return {
+         type: INCREMENT_BY_FIVE,
+         payload: value
+    }
+}
+
+
 const counterReducer = (state=initialCounterState, action) => {
     switch (action.type) {
         case INCREMENT:
@@ -47,6 +56,10 @@ const counterReducer = (state=initialCounterState, action) => {
         case RESET:
             return {
                 count : 0
+            }
+        case INCREMENT_BY_FIVE:
+            return {
+                count : state.count + action.payload
             }
         default:
             return state            
@@ -66,5 +79,6 @@ store.dispatch(incrementAction());
 store.dispatch(incrementAction());
 store.dispatch(decrementAction());
 store.dispatch(resetAction());
+store.dispatch(incrementByFiveAction(5));
 
 
