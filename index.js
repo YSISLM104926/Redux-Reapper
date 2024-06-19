@@ -25,7 +25,7 @@ const decrementCounter = () => {
 }
 
 // Reducer
-const counterReducer = (state, action) => {
+const counterReducer = (state=initialCounterState, action) => {
     switch (action.type) {
         case INCREMENT:
             return {
