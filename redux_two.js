@@ -59,6 +59,7 @@ const counterReducer = (state=initialCounterState, action) => {
             }
         case INCREMENT_BY_FIVE:
             return {
+                ...state,
                 count : state.count + action.payload
             }
         default:
